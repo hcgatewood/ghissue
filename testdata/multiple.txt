@@ -1,0 +1,16 @@
+hcgatewood23/test
+---
+Multiple title A | label0,label1 | hcgatewood23
+Long body
+With multiple lines
+And additional info
+Including some triple hyphens --- that aren't at beginning of the line
+--- And hyphens that aren't newline-anchored
+--
+And hyphens that are newline-anchored but only 2
+Also add some unicode for fun 👉🌟
+---
+Multiple title B | label2
+Short body
+---
+Multiple title C | |
