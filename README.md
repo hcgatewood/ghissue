@@ -101,6 +101,8 @@ CLI flags for the `create` command
 --open     Open browser to view new Issues
 ```
 
+Note: can disable the byline with `--byline=false`.
+
 ### Install options
 
 [Per-release assets](https://github.com/hcgatewood/ghissue/releases) if you don't want to use Homebrew.
