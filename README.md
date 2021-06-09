@@ -61,11 +61,9 @@ Prerequisites
 - Create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable
 - Replace `hcgatewood23/test` below with a repo to which you have write access
 
-We'll create two issues: a self-assigned feature request and a bug report
+We'll create two issues: a self-assigned feature request and a bug report. Place the following into a file named `issues.txt`
 
-```bash
-$ cat issues.txt
-
+```
 hcgatewood23/test
 ---
 Update the README | feature,milestone4 | hcgatewood23
@@ -77,10 +75,9 @@ Fix CLI bug | bug
 Bug report: CLI needs to be fixed. Someone please claim.
 ```
 
-Next, bulk-create the Issues
+Now bulk-create the Issues
 
 ```bash
-
 $ ghissue create issues.txt --open
 
 22,23
@@ -98,7 +95,7 @@ brew install hcgatewood/ghissue/ghissue
 
 If you can't or don't want to use Homebrew, consider these additional install methods
 
-- `go get github.com/hcgatewood/ghissue` install via Go
+- `go get -u github.com/hcgatewood/ghissue` install via Go
 - `go run github.com/hcgatewood/ghissue` don't install, run directly via Go
 - Check out the [per-release assets](https://github.com/hcgatewood/ghissue/releases)
 - Compile from source
