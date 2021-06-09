@@ -81,7 +81,10 @@ func TestCreate(t *testing.T) {
 		},
 	}
 
-	cfg := &lib.Config{DryRun: true}
+	cfg := &lib.Config{
+		DryRun: true,
+		Byline: false,
+	}
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
 			actual, err := lib.Create(cfg, test.readInput(t))

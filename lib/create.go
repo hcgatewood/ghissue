@@ -18,6 +18,8 @@ import (
 type Config struct {
 	Token string
 
+	Byline bool
+
 	DryRun bool
 	Info   bool
 	Open   bool
@@ -29,6 +31,8 @@ var (
 	ListSep   = ","
 	TargetSep = "/"
 
+	Byline = "> 🙌 Bulk-uploaded by https://github.com/hcgatewood/ghissue"
+
 	IndexWait = 3 * time.Second
 	OpenSince = 30 * time.Second
 )
@@ -38,7 +42,7 @@ func Create(cfg *Config, input string) ([]github.IssueRequest, error) {
 		cfg = &Config{}
 	}
 
-	target, reqs, err := parse(input)
+	target, reqs, err := parse(cfg, input)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +110,7 @@ func getIssueNumbers(issues []*github.Issue) []string {
 	return nums
 }
 
-func parse(inp string) (targetT, []github.IssueRequest, error) {
+func parse(cfg *Config, inp string) (targetT, []github.IssueRequest, error) {
 	inpSplit := fields(inp, BigSep)
 
 	if len(inpSplit) < 2 {
@@ -125,7 +129,7 @@ func parse(inp string) (targetT, []github.IssueRequest, error) {
 		return targetT{}, nil, err
 	}
 
-	reqs, err := parseIssues(issuesInp)
+	reqs, err := parseIssues(cfg, issuesInp)
 	if err != nil {
 		return targetT{}, nil, err
 	}
@@ -151,14 +155,14 @@ func parseTarget(targetStr string) (targetT, error) {
 	return target, nil
 }
 
-func parseIssues(inps []string) ([]github.IssueRequest, error) {
+func parseIssues(cfg *Config, inps []string) ([]github.IssueRequest, error) {
 	var reqs []github.IssueRequest
 	for _, inp := range inps {
 		trimmed := strings.TrimSpace(inp)
 		if trimmed == "" {
 			continue
 		}
-		req, err := parseIssue(trimmed)
+		req, err := parseIssue(cfg, trimmed)
 		if err != nil {
 			return nil, err
 		}
@@ -167,7 +171,7 @@ func parseIssues(inps []string) ([]github.IssueRequest, error) {
 	return reqs, nil
 }
 
-func parseIssue(inp string) (github.IssueRequest, error) {
+func parseIssue(cfg *Config, inp string) (github.IssueRequest, error) {
 	split := strings.SplitN(inp, "\n", 2)
 	var metadataInp, bodyInp string
 	if len(split) == 1 {
@@ -194,7 +198,7 @@ func parseIssue(inp string) (github.IssueRequest, error) {
 
 	issue := github.IssueRequest{
 		Title:     &title,
-		Body:      getStr(bodyInp),
+		Body:      getBody(cfg, bodyInp),
 		Labels:    parseList(labelsInp),
 		Assignees: parseList(assigneesInp),
 	}
@@ -202,9 +206,13 @@ func parseIssue(inp string) (github.IssueRequest, error) {
 	return issue, nil
 }
 
-func getStr(inp string) *string {
+func getBody(cfg *Config, inp string) *string {
 	if inp == "" {
 		return nil
+	}
+	if cfg.Byline {
+		s := fmt.Sprintf("%s\n\n\n%s", inp, Byline)
+		return &s
 	}
 	return &inp
 }
