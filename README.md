@@ -15,19 +15,20 @@
 
 <p align="center">
     <a href="https://github.com/hcgatewood/ghissue">
-        <img width="600" src="https://raw.githubusercontent.com/hcgatewood/ghissue/master/assets/undraw_uploading_go67.png">
+        <img width="550" src="https://raw.githubusercontent.com/hcgatewood/ghissue/master/assets/undraw_uploading_go67.png">
     </a>
 </p>
 
-## Howto
+## About
 
 Bulk-upload as easy as
 
 ```bash
+brew install hcgatewood/ghissue/ghissue
 ghissue create issues.txt
 ```
 
-## Example
+## Howto
 
 ### Overview
 
@@ -35,7 +36,10 @@ ghissue create issues.txt
 
 ### Walkthrough
 
-Prerequisite: create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable.
+Prerequisites
+
+- Install ghissue `brew install hcgatewood/ghissue/ghissue`
+- Create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable
 
 We'll create two issues: a self-assigned feature request and a bug report, both targeting the [hcgatewood23/test](https://github.com/hcgatewood23/test) repo
 
@@ -96,3 +100,8 @@ CLI flags for the `create` command
 --info     Print more info about the Issues
 --open     Open browser to view new Issues
 ```
+
+### Install options
+
+[Per-release assets](https://github.com/hcgatewood/ghissue/releases) if you don't want to use Homebrew.
+
