@@ -30,50 +30,6 @@ ghissue create issues.txt
 
 ## Howto
 
-### Overview
-
-[![asciicast](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284.svg)](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284)
-
-### Walkthrough
-
-Prerequisites
-
-- Install ghissue `brew install hcgatewood/ghissue/ghissue`
-- Create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable
-
-Notes
-- See [input format](https://github.com/hcgatewood/ghissue#input-format) for the bulk-issue format of `issues.txt`
-- This walkthrough targets the [hcgatewood23/test](https://github.com/hcgatewood23/test) repo. You'll have to replace that with a repo to which you have write access
-
-We'll create two issues: a self-assigned feature request and a bug report
-
-```bash
-$ cat issues.txt
-
-hcgatewood23/test
----
-Update the README | feature | hcgatewood23
-Update readme with examples.
-
-Add note that Issue body can contain multiple lines.
----
-Fix CLI bug | bug
-Bug report: CLI needs to be fixed. Someone please claim.
-```
-
-Next, bulk-create the Issues. This will also open your browser to view the newly-created Issues
-
-```bash
-
-$ ghissue create issues.txt --open
-
-22,23
-```
-
-See `testdata/` for more examples.
-
-## Notes
-
 ### Input format
 
 The input file contains a repo target, followed by hyphen-separated issues.
@@ -93,7 +49,50 @@ Title | Labels | Assignees
 Body
 ```
 
-### Additional options
+### Overview
+
+[![asciicast](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284.svg)](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284)
+
+### Walkthrough
+
+Prerequisites
+
+- Install ghissue `brew install hcgatewood/ghissue/ghissue`
+- Create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable
+- Replace `hcgatewood23/test` below with a repo to which you have write access
+
+We'll create two issues: a self-assigned feature request and a bug report
+
+```bash
+$ cat issues.txt
+
+hcgatewood23/test
+---
+Update the README | feature,milestone4 | hcgatewood23
+Update readme with examples.
+
+Add note that Issue body can contain multiple lines.
+---
+Fix CLI bug | bug
+Bug report: CLI needs to be fixed. Someone please claim.
+```
+
+Next, bulk-create the Issues
+
+```bash
+
+$ ghissue create issues.txt --open
+
+22,23
+```
+
+## Notes
+
+### More examples 
+
+See `testdata/` for more examples.
+
+### CLI
 
 CLI flags for the `create` command
 
@@ -107,7 +106,9 @@ CLI flags for the `create` command
 
 Note: can disable the byline with `--byline=false`.
 
-### Install options
+### Install
 
-[Per-release assets](https://github.com/hcgatewood/ghissue/releases) if you don't want to use Homebrew.
+Use `brew install hcgatewood/ghissue/ghissue` to install with Homebrew.
+
+Check out the [per-release assets](https://github.com/hcgatewood/ghissue/releases) if you don't want to use Homebrew.
 
