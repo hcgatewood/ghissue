@@ -220,14 +220,15 @@ func parseIssue(cfg *Config, inp string) (github.IssueRequest, error) {
 }
 
 func getBody(cfg *Config, inp string) *string {
-	if inp == "" {
+	trimmed := strings.TrimSpace(inp)
+	if trimmed == "" {
 		return nil
 	}
 	if cfg.Byline {
-		s := fmt.Sprintf("%s\n\n\n%s", inp, Byline)
+		s := fmt.Sprintf("%s\n\n\n%s", trimmed, Byline)
 		return &s
 	}
-	return &inp
+	return &trimmed
 }
 
 func parseList(inp string) *[]string {

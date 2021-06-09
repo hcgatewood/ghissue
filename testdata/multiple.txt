@@ -11,6 +11,7 @@ And hyphens that are newline-anchored but only 2
 Also add some unicode for fun 👉🌟
 ---
 Multiple title B | label2
-Short body
+
+Short body with headspace
 ---
 Multiple title C | |

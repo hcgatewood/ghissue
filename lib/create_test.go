@@ -72,7 +72,7 @@ func TestCreate(t *testing.T) {
 				{
 					Title:  github.String("Multiple title B"),
 					Labels: &[]string{"label2"},
-					Body:   github.String("Short body"),
+					Body:   github.String("Short body with headspace"),
 				},
 				{
 					Title: github.String("Multiple title C"),
