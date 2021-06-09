@@ -1,4 +1,4 @@
 PHONY: release
 
 release:
-	goreleaser release
+	goreleaser release --rm-dist
