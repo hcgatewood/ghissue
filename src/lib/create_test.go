@@ -8,7 +8,7 @@ import (
 	"github.com/google/go-github/v35/github"
 	"github.com/stretchr/testify/assert"
 
-	"hcgatewood/ghissue/lib"
+	"github.com/hcgatewood/ghissue/src/lib"
 )
 
 func TestCreate(t *testing.T) {

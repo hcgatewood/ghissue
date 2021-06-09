@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra/doc"
 
-	"hcgatewood/ghissue/cmd"
+	"github.com/hcgatewood/ghissue/src/cmd"
 )
 
 //go:generate go run markdown.go

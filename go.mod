@@ -1,4 +1,4 @@
-module hcgatewood/ghissue
+module github.com/hcgatewood/ghissue
 
 go 1.13
 

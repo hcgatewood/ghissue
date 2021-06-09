@@ -1,7 +1,7 @@
 package main
 
 import (
-	"hcgatewood/ghissue/cmd"
+	"github.com/hcgatewood/ghissue/src/cmd"
 )
 
 func main() {

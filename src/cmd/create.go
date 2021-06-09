@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"hcgatewood/ghissue/lib"
+	"github.com/hcgatewood/ghissue/src/lib"
 )
 
 var createHelpLong = `Create GitHub Issues from file.

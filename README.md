@@ -88,6 +88,21 @@ $ ghissue create issues.txt --open
 
 ## Notes
 
+### Install
+
+Preferred installation method via [Homebrew](https://brew.sh/)
+
+```bash
+brew install hcgatewood/ghissue/ghissue
+```
+
+If you can't or don't want to use Homebrew, consider these additional install methods
+
+- `go get github.com/hcgatewood/ghissue` install via Go
+- `go run github.com/hcgatewood/ghissue` don't install, run directly via Go
+- Check out the [per-release assets](https://github.com/hcgatewood/ghissue/releases)
+- Compile from source
+
 ### More examples 
 
 See `testdata/` for more examples.
@@ -105,10 +120,4 @@ CLI flags for the `create` command
 ```
 
 Note: can disable the byline with `--byline=false`.
-
-### Install
-
-Use `brew install hcgatewood/ghissue/ghissue` to install with Homebrew.
-
-Check out the [per-release assets](https://github.com/hcgatewood/ghissue/releases) if you don't want to use Homebrew.
 
