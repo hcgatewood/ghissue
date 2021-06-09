@@ -41,7 +41,11 @@ Prerequisites
 - Install ghissue `brew install hcgatewood/ghissue/ghissue`
 - Create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable
 
-We'll create two issues: a self-assigned feature request and a bug report, both targeting the [hcgatewood23/test](https://github.com/hcgatewood23/test) repo
+Notes
+- See [input format](https://github.com/hcgatewood/ghissue#input-format) for the bulk-issue format of `issues.txt`
+- This walkthrough targets the [hcgatewood23/test](https://github.com/hcgatewood23/test) repo. You'll have to replace that with a repo to which you have write access
+
+We'll create two issues: a self-assigned feature request and a bug report
 
 ```bash
 $ cat issues.txt
