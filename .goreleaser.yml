@@ -35,4 +35,4 @@ brews:
     tap:
       owner: hcgatewood
       name: ghissue
-    homepage: "https://github.com/hcgatewood/ghissue"
+    homepage: "https://github.com/hcgatewood/homebrew-ghissue"
