@@ -1,14 +1,27 @@
-# ghissue
+<h1 align="center">
+    ghissue
+    <br>
+    <a href="https://github.com/hcgatewood/ghissue"><img src="https://raw.githubusercontent.com/magma/magma/master/assets/undraw_uploading_go67.png" width="550"></a>
+</h1>
 
-Bulk-upload GitHub Issues as easy as
+<h3 align="center">Bulk-upload GitHub Issues</h3>
+
+<p align="center">
+    <a href="https://github.com/hcgatewood/ghissue/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+    <a href="https://github.com/hcgatewood/ghissue/releases"><img src="https://img.shields.io/github/release/hcgatewood/ghissue" alt="GitHub Release"></a>
+    <a href="https://github.com/hcgatewood/ghissue/commits/master"><img src="https://img.shields.io/github/last-commit/hcgatewood/ghissue" alt="GitHub last commit"></a>
+    <a href="https://github.com/hcgatewood/ghissue/blob/master/lib/create_test.go"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PR's Welcome"></a>
+</p>
+
+Bulk-upload as easy as
 
 ```bash
-ghissue --token gh.token create issues.txt
+ghissue create issues.txt
 ```
 
 ## Example
 
-Prerequisite: create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save it to `./gh.token`
+Prerequisite: create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable.
 
 We'll create two issues: a self-assigned feature request and a bug report
 
@@ -30,7 +43,7 @@ Next, bulk-create the Issues. This will also open your browser to view the newly
 
 ```bash
 
-$ ghissue --token gh.token create issues.txt --open
+$ ghissue create issues.txt --open
 
 14,15
 ```

@@ -44,7 +44,7 @@ ghissue create issues.txt [flags]
 ### Options inherited from parent commands
 
 ```
-      --token string   Filepath of GitHub personal access token (required)
+      --token string   GitHub personal access token
 ```
 
 ### SEE ALSO

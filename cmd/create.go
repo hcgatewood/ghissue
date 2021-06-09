@@ -1,12 +1,8 @@
 package cmd
 
 import (
-	"fmt"
-	"io/ioutil"
-	"os"
 	"strings"
 
-	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
 	"hcgatewood/ghissue/lib"
@@ -55,11 +51,6 @@ func init() {
 }
 
 func runCreate(cmd *cobra.Command, args []string) {
-	token, err := read(rootTokenFilepath)
-	if err != nil {
-		exit(cmd, err)
-	}
-	token = strings.TrimSpace(token)
 	input, err := read(args[0])
 	if err != nil {
 		exit(cmd, err)
@@ -67,7 +58,7 @@ func runCreate(cmd *cobra.Command, args []string) {
 	input = lib.TrimInput(input)
 
 	cfg := &lib.Config{
-		Token:  token,
+		Token:  rootToken,
 		DryRun: globalConfig.DryRun,
 		Info:   globalConfig.Info,
 		Open:   globalConfig.Open,
@@ -77,19 +68,4 @@ func runCreate(cmd *cobra.Command, args []string) {
 	if err != nil {
 		exit(cmd, err)
 	}
-}
-
-func read(filepath string) (string, error) {
-	bytes, err := ioutil.ReadFile(filepath)
-	if err != nil {
-		return "", errors.Errorf("could not read from %s: %+v", filepath, err)
-	}
-	return string(bytes), nil
-}
-
-func exit(cmd *cobra.Command, err error) {
-	_ = cmd.Usage()
-	fmt.Println("")
-	fmt.Println("Error:", err)
-	os.Exit(1)
 }

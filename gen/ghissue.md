@@ -5,14 +5,14 @@ Bulk-upload GitHub Issues
 ### Examples
 
 ```
-ghissue --token ~/.creds/gh.token create issues.txt
+GITHUB_TOKEN='...' ghissue create ./issues.txt
 ```
 
 ### Options
 
 ```
   -h, --help           help for ghissue
-      --token string   Filepath of GitHub personal access token (required)
+      --token string   GitHub personal access token
 ```
 
 ### SEE ALSO
