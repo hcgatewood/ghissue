@@ -15,6 +15,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
+// Config for creating an Issue Request.
 type Config struct {
 	Token string
 
@@ -26,17 +27,27 @@ type Config struct {
 }
 
 var (
-	BigSep    = "\n---\n"
-	SmallSep  = "|"
-	ListSep   = ","
+	// BigSep separates Issues in the input.
+	BigSep = "\n---\n"
+	// SmallSep separates metadata in the input.
+	SmallSep = "|"
+	// ListSep separates list items in metadata.
+	ListSep = ","
+	// TargetSep separates owner/repo.
 	TargetSep = "/"
 
+	// Byline is the suffix to append to Issue bodies.
 	Byline = "> 🙌 Bulk-uploaded by https://github.com/hcgatewood/ghissue"
 
+	// IndexWait is how long to wait between creating Issues and opening their
+	// URL.
 	IndexWait = 3 * time.Second
+	// OpenSince is how far back from now to set the search time when opening
+	// an Issue search URL.
 	OpenSince = 30 * time.Second
 )
 
+// Create GitHub Issues.
 func Create(cfg *Config, input string) ([]github.IssueRequest, error) {
 	if cfg == nil {
 		cfg = &Config{}
@@ -81,6 +92,8 @@ func Create(cfg *Config, input string) ([]github.IssueRequest, error) {
 	return reqs, nil
 }
 
+// TrimInput trims the string input, pre-parsing.
+// Callers should call this first on what they pass to Create.
 func TrimInput(s string) string {
 	// Only trim left. Trailing whitespace will be handled by issue parser.
 	return strings.TrimLeftFunc(s, unicode.IsSpace)

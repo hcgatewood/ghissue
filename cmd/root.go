@@ -20,6 +20,7 @@ var (
 	tokenEnvName = "GITHUB_TOKEN"
 )
 
+// RootCmd is the root command for the CLI.
 var RootCmd = &cobra.Command{
 	Use:              "ghissue",
 	Example:          "GITHUB_TOKEN='...' ghissue create ./issues.txt",
@@ -28,19 +29,24 @@ var RootCmd = &cobra.Command{
 }
 
 func init() {
-	RootCmd.PersistentFlags().StringVar(&rootToken, "token", os.Getenv(tokenEnvName), "GitHub personal access token")
+	RootCmd.PersistentFlags().StringVar(&rootToken, "token", "", "GitHub personal access token")
 }
 
+// Execute the root command.
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
-		fmt.Println(err)
+		fmt.Println("Unexpected error:", err)
 		os.Exit(1)
 	}
 }
 
 func globalPre(cmd *cobra.Command, args []string) {
 	if rootToken == "" {
-		exit(cmd, errors.New("Must provide a GitHub personal access token. Try setting GITHUB_TOKEN environment variable."))
+		envToken := os.Getenv(tokenEnvName)
+		if envToken == "" {
+			exit(cmd, errors.New("Must provide a GitHub personal access token. Try setting GITHUB_TOKEN environment variable."))
+		}
+		rootToken = envToken
 	}
 	rootToken = strings.TrimSpace(rootToken)
 }

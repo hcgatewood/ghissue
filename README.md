@@ -1,17 +1,25 @@
 <h1 align="center">
     ghissue
-    <br>
-    <a href="https://github.com/hcgatewood/ghissue"><img src="https://raw.githubusercontent.com/magma/magma/master/assets/undraw_uploading_go67.png" width="550"></a>
 </h1>
-
-<h3 align="center">Bulk-upload GitHub Issues</h3>
+<h3 align="center">
+    Bulk-upload GitHub Issues
+</h3>
 
 <p align="center">
     <a href="https://github.com/hcgatewood/ghissue/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
     <a href="https://github.com/hcgatewood/ghissue/releases"><img src="https://img.shields.io/github/release/hcgatewood/ghissue" alt="GitHub Release"></a>
     <a href="https://github.com/hcgatewood/ghissue/commits/master"><img src="https://img.shields.io/github/last-commit/hcgatewood/ghissue" alt="GitHub last commit"></a>
     <a href="https://github.com/hcgatewood/ghissue/blob/master/lib/create_test.go"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PR's Welcome"></a>
+    <a href="https://goreportcard.com/report/github.com/hcgatewood/ghissue"><img src="https://goreportcard.com/badge/github.com/hcgatewood/ghissue" alt="GoReportCard"></a>
 </p>
+
+<p align="center">
+    <a href="https://github.com/hcgatewood/ghissue">
+        <img width="600" src="https://raw.githubusercontent.com/hcgatewood/ghissue/master/assets/undraw_uploading_go67.png">
+    </a>
+</p>
+
+## Howto
 
 Bulk-upload as easy as
 
@@ -21,9 +29,15 @@ ghissue create issues.txt
 
 ## Example
 
+### Overview
+
+[![asciicast](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284.svg)](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284)
+
+### Walkthrough
+
 Prerequisite: create a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) and save its contents to the `GITHUB_TOKEN` environment variable.
 
-We'll create two issues: a self-assigned feature request and a bug report
+We'll create two issues: a self-assigned feature request and a bug report, both targeting the [hcgatewood23/test](https://github.com/hcgatewood23/test) repo
 
 ```bash
 $ cat issues.txt
@@ -45,7 +59,7 @@ Next, bulk-create the Issues. This will also open your browser to view the newly
 
 $ ghissue create issues.txt --open
 
-14,15
+22,23
 ```
 
 See `testdata/` for more examples.
