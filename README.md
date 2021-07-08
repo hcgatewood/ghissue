@@ -51,7 +51,7 @@ Body
 
 ### Overview
 
-[![asciicast](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284.svg)](https://asciinema.org/a/n8j5a3uaPA4uj1H33eT4gv284)
+[![asciicast](https://asciinema.org/a/yLq2nrcbUYyNCkQx46LFEBaUr.svg)](https://asciinema.org/a/yLq2nrcbUYyNCkQx46LFEBaUr)
 
 ### Walkthrough
 
